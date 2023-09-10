@@ -1,22 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+{/*import { useGlobalStates } from './Context'*/}
 
+const Card = ({ dentista }) => {
+  {/*const{theme,setTheme} = useGlobalStates()*/}
+ 
+  const addFav = () => {
+  const existingFavorites = localStorage.getItem("favoriteCards");
+  // Convierte el objeto dentista a una cadena JSON
+  const favorites = existingFavorites ? JSON.parse(existingFavorites) : [];
+  
+  // Verifica si el dentista ya está en la lista de favoritos por su ID
+  const isAlreadyFavorite = favorites.some((favorite) => favorite.id === dentista.id);
 
-const Card = ({ name, username, id }) => {
-
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
+  if (!isAlreadyFavorite) {
+    favorites.push(dentista);
+    // Almacena la lista de favoritos en el localStorage
+    localStorage.setItem('favoriteCards', JSON.stringify(favorites));
+    
+  } else {
+    // Dentista ya está en la lista de favoritos, puedes mostrar un mensaje de error o tomar alguna acción aquí
+    console.log(`Dentista con ID ${dentista.id} ya está en la lista de favoritos.`);
+    
   }
 
-  return (
-    <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
+}
 
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
+// Aqui iria la logica para agregar la Card en el localStorage
+return (
+<div className="card">
+      <img className = "imagen-dentista" src="./images/doctor.jpg" alt="Doctor" />
+      <h2>{dentista.name}</h2>
+      <h3>{dentista.username}</h3>
+      <h4>{dentista.id}</h4>
+  {/* En cada card deberan mostrar en name - username y el id */}
 
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
-    </div>
-  );
-};
+  {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
+  <Link to={`/dentista/${dentista.id}`}>Detalle</Link>
+
+  {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
+  <button onClick = {addFav} className="favButton">⭐</button>
+   
+  
+   </div>
+);
+}
+
+
+
 
 export default Card;
+  
+   
