@@ -1,5 +1,5 @@
 
-/*import Context from "./Components/Context";*/
+
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import React from "react";
@@ -14,7 +14,7 @@ function App() {
   
   return (
       <div className="App">
-       {/*<Context>*/}
+       
           <Navbar/>
            <Routes>
              <Route path='/' element= {<Home/>}/>
@@ -23,7 +23,7 @@ function App() {
              <Route path='/favs' element = {<Favs/>}/>
            </Routes>
           <Footer/>
-       {/* </Context>*/}
+      
       </div>
   );
 }

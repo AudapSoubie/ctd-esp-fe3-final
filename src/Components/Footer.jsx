@@ -1,8 +1,12 @@
 import React from 'react'
+import { ContextGlobal, ContextProvider } from '../Components/utils/global.context'
+import { useContext } from "react";
 
 const Footer = () => {
+  const{theme,setTheme} = useContext(ContextGlobal);
   return (
-    <footer>
+    <footer className={theme}>
+       
         <p>Powered by</p>
         <img src='../images/DH.png'alt='DH-logo' />
         <img src='../../public/images/ico-facebook.png'alt='facebook' />

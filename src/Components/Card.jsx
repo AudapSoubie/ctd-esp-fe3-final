@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-{/*import { useGlobalStates } from './Context'*/}
+import { useContext } from "react";
+import { ContextGlobal, ContextProvider } from '../Components/utils/global.context'
 
 const Card = ({ dentista }) => {
-  {/*const{theme,setTheme} = useGlobalStates()*/}
+  const{theme,setTheme} =useContext(ContextGlobal);
  
   const addFav = () => {
   const existingFavorites = localStorage.getItem("favoriteCards");
@@ -21,11 +22,8 @@ const Card = ({ dentista }) => {
   } else {
     // Dentista ya está en la lista de favoritos, puedes mostrar un mensaje de error o tomar alguna acción aquí
     console.log(`Dentista con ID ${dentista.id} ya está en la lista de favoritos.`);
-    
   }
-
 }
-
 // Aqui iria la logica para agregar la Card en el localStorage
 return (
 <div className="card">
@@ -40,15 +38,17 @@ return (
 
   {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
   <button onClick = {addFav} className="favButton">⭐</button>
-   
-  
+  {theme && setTheme}
    </div>
 );
 }
 
 
 
+  
+
 
 export default Card;
   
    
+    

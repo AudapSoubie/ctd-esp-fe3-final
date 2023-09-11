@@ -10,20 +10,31 @@ const Form = () => {
   const [ error, setError] = useState(false)
   const handleSubmit = (event) =>{
     event.preventDefault()
-    if(name.length > 5){
+    if(name.length <= 5){
+      // Aca entra cuando hay un error
       setShow(false);
       setError(true);
-    }else {
-        setShow(true);
+    return
+       
+    } else {
+      // Aca entra cuando es correcto
+      setShow(true);
       setError(false);
     }
       if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
-        setError(true);
+
+        setShow(false);
+        setError(true); 
+     return
+       
       } else {
+        setShow(true);
         setError(false);
       }
     };
+
     return (
+      
       <div>
         <form onSubmit ={handleSubmit}>
         <label htmlFor="Name">Nombre</label>
