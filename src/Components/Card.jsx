@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useGlobalStates } from '../Components/utils/global.context';
 import { useContext } from "react";
 import { ContextGlobal, ContextProvider } from '../Components/utils/global.context'
 
 const Card = ({ dentista }) => {
-  const{theme,setTheme} =useContext(ContextGlobal);
+  const {theme,setTheme} = useGlobalStates()
+  {/*const{theme,setTheme} =useContext(ContextGlobal);*/}
  
   const addFav = () => {
   const existingFavorites = localStorage.getItem("favoriteCards");
@@ -27,16 +29,12 @@ const Card = ({ dentista }) => {
 // Aqui iria la logica para agregar la Card en el localStorage
 return (
 <div className="card">
+      <Link to={`/dentista/${dentista.id}`}>
       <img className = "imagen-dentista" src="./images/doctor.jpg" alt="Doctor" />
-      <h2>{dentista.name}</h2>
-      <h3>{dentista.username}</h3>
-      <h4>{dentista.id}</h4>
-  {/* En cada card deberan mostrar en name - username y el id */}
-
-  {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-  <Link to={`/dentista/${dentista.id}`}>Detalle</Link>
-
-  {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
+      <h4 >{dentista.name}</h4>
+      <h4>{dentista.username}</h4>
+      <h3>{dentista.id}</h3></Link>
+ 
   <button onClick = {addFav} className="favButton">⭐</button>
   {theme && setTheme}
    </div>

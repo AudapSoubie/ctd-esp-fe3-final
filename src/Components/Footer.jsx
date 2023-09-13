@@ -1,9 +1,11 @@
 import React from 'react'
 import { ContextGlobal, ContextProvider } from '../Components/utils/global.context'
 import { useContext } from "react";
+import { useGlobalStates } from '../Components/utils/global.context';
 
 const Footer = () => {
-  const{theme,setTheme} = useContext(ContextGlobal);
+  const {theme,setTheme} = useGlobalStates()
+  {/*const{theme,setTheme} = useContext(ContextGlobal);*/}
   return (
     <footer className={theme}>
        

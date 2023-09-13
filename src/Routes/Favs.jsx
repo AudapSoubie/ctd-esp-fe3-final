@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../Components/Card";
 import { useState,useEffect } from "react";
+import { useGlobalStates } from "../Components/utils/global.context";
 import { ContextGlobal } from '../Components/utils/global.context'
 import { useContext } from "react";
 
@@ -9,7 +10,8 @@ import { useContext } from "react";
 
 const Favs = () => {
   const [favoriteCards, setFavoriteCards] = useState([]);
-  const{theme, setTheme} = useContext(ContextGlobal);
+  const {theme,setTheme} = useGlobalStates()
+  {/*const{theme, setTheme} = useContext(ContextGlobal);*/}
    // Estado para almacenar las Cards favoritas
   
    useEffect(() => {

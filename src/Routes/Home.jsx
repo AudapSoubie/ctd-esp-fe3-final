@@ -1,10 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import Card from '../Components/Card'
+import { useGlobalStates } from '../Components/utils/global.context'
 import axios from 'axios'
 import { ContextGlobal } from '../Components/utils/global.context'
 import { useContext } from "react";
 const Home = () => {
-  const{theme,setTheme} = useContext(ContextGlobal);
+  {/*const{theme,setTheme} = useContext(ContextGlobal);
   const [dentista, setDentista]= useState([])
   const [loading, setLoading] = useState(false)
   const url = `https://jsonplaceholder.typicode.com/users`
@@ -20,7 +21,9 @@ const Home = () => {
       console.error('Error fetching data:', error);
       setLoading(false);
     });
-  },[])
+  },[])*/}
+  const {dentista} = useGlobalStates()
+  const {theme,setTheme} = useGlobalStates()
 
   return (
     <main className={theme}>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useGlobalStates } from './utils/global.context';
 import { ContextGlobal } from '../Components/utils/global.context';
 import { useContext } from "react";
 
 const Navbar = () => {
-  const { theme, setTheme } = useContext(ContextGlobal);
+  const {theme,setTheme} = useGlobalStates()
+ {/*} const { theme, setTheme } = useContext(ContextGlobal);*/}
 
   const titulos = [
     { titulo: 'Home', route: '/' },
@@ -15,7 +17,7 @@ const Navbar = () => {
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
     
-    // Cambiar el tema al contrario del tema actual
+    
   };
 
   return (
