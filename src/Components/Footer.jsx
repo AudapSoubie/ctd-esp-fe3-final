@@ -1,12 +1,9 @@
 import React from 'react'
-import { ContextGlobal, ContextProvider } from '../Components/utils/global.context'
-import { useContext } from "react";
 import { useGlobalStates } from '../Components/utils/global.context';
 
 const Footer = () => {
   const {theme,setTheme} = useGlobalStates()
-  {/*const{theme,setTheme} = useContext(ContextGlobal);*/}
-  return (
+ return (
     <footer className={theme}>
        
         <p>Powered by</p>
@@ -18,5 +15,4 @@ const Footer = () => {
     </footer>
   )
 }
-
 export default Footer

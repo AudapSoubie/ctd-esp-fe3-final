@@ -11,7 +11,6 @@ import { useContext } from "react";
 
 const Detail = () => {
   const {theme,setTheme} = useGlobalStates()
-{/*} const{theme,setTheme} = useContext(ContextGlobal);*/}
   const [card, setCard]=useState({})
   const {id } = useParams();
   const url = `https://jsonplaceholder.typicode.com/users/${id}`
@@ -23,9 +22,6 @@ const Detail = () => {
   if (card === null) {
     return <p>Cargando...</p>;
   }
-
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-
   return (
     <>
     <div className={theme}>
@@ -43,10 +39,6 @@ const Detail = () => {
         </tr>
       </table>
     </div>
-      
-    
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
     </>
   )
 }

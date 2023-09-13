@@ -1,27 +1,8 @@
 import React, { useState,useEffect } from 'react'
 import Card from '../Components/Card'
 import { useGlobalStates } from '../Components/utils/global.context'
-import axios from 'axios'
-import { ContextGlobal } from '../Components/utils/global.context'
-import { useContext } from "react";
-const Home = () => {
-  {/*const{theme,setTheme} = useContext(ContextGlobal);
-  const [dentista, setDentista]= useState([])
-  const [loading, setLoading] = useState(false)
-  const url = `https://jsonplaceholder.typicode.com/users`
 
-  useEffect(()=>{
-    setLoading(true);
-    axios ( url)
-    .then((res) => {
-      setDentista(res.data);
-    setLoading(false);
-    })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
-      setLoading(false);
-    });
-  },[])*/}
+const Home = () => {
   const {dentista} = useGlobalStates()
   const {theme,setTheme} = useGlobalStates()
 
@@ -33,9 +14,7 @@ const Home = () => {
              {dentista.map(dentista => (
                 <Card dentista={dentista} key ={dentista.id}/>))}
         </ul>
-        
-        {/* Aqui deberias renderizar las cards */}
-      </div>
+        </div>
     </main>
   )
 }

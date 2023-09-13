@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobalStates } from './utils/global.context';
-import { ContextGlobal } from '../Components/utils/global.context';
-import { useContext } from "react";
+
 
 const Navbar = () => {
   const {theme,setTheme} = useGlobalStates()
- {/*} const { theme, setTheme } = useContext(ContextGlobal);*/}
-
   const titulos = [
     { titulo: 'Home', route: '/' },
     { titulo: 'Contact', route: '/contact' },
@@ -15,7 +12,7 @@ const Navbar = () => {
   ];
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(theme === 'light' ? 'dark' : 'light');
     
     
   };
@@ -30,9 +27,7 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      {/* Aquí deberán agregar los links correspondientes a las rutas definidas */}
-      {/* Deberán implementar además la lógica para cambiar de Theme con el button */}
-      <button onClick={toggleTheme}>{theme === 'dark' ? '🌙' : '☀️'}</button>
+      <button onClick={toggleTheme}>{theme === 'dark' ? '☀️' : '🌙'}</button>
     </nav>
   );
 };

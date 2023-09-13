@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 const Form = () => {
-  //Aqui deberan implementar el form completo con sus validaciones
+ 
   const [name,setName]=useState("")
   const [email ,setEmail ]=useState("")
   const[show, setShow] = useState(false)
@@ -11,13 +11,11 @@ const Form = () => {
   const handleSubmit = (event) =>{
     event.preventDefault()
     if(name.length <= 5){
-      // Aca entra cuando hay un error
-      setShow(false);
+     setShow(false);
       setError(true);
     return
        
     } else {
-      // Aca entra cuando es correcto
       setShow(true);
       setError(false);
     }
