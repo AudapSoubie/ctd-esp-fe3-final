@@ -11,9 +11,11 @@ const Card = ({ dentista }) => {
   if (!isAlreadyFavorite) {
     favorites.push(dentista);
     localStorage.setItem('favoriteCards', JSON.stringify(favorites));
+    alert('Este profesional fue agregado a tu lista de favoritos')
     
   } else {
     console.log(`Dentista con ID ${dentista.id} ya está en la lista de favoritos.`);
+    alert(`El dentista  ${dentista.name} ya está en la lista de favoritos.`)
   }
 }
 return (

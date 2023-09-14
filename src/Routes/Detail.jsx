@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import { useGlobalStates } from '../Components/utils/global.context';
-import { ContextGlobal, ContextProvider } from '../Components/utils/global.context'
-import { useContext } from "react";
+
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context

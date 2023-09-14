@@ -59,11 +59,20 @@ footer {
   height: 40px;
   
 }
+.footer-img{
 
-footer > img{
-  width: 200px;
+  display: flex;
+  justify-content:space-around;
+ ; width: 30%;
   margin: 0;
+ color: grey;
 }
+.icon{
+
+  width: 30px;
+  background-color: grey;
+}
+
 footer > p{
    margin: 100;
   padding-top: 0.7rem;
@@ -108,9 +117,9 @@ form{
   border: 0.5px solid rgb(206, 217, 142);
 }
 .card-grid {
-  
+ 
   display: flex;
-  justify-content: space-evenly;
+  justify-content:  space-around;
    gap: 1rem;
   width: 90vw;
   height: auto;

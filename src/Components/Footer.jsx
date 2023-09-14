@@ -1,5 +1,10 @@
 import React from 'react'
 import { useGlobalStates } from '../Components/utils/global.context';
+import icofacebook  from '../imagenes/icofacebook.png';
+import icoinstagram  from '../imagenes/icoinstagram.png';
+import icotiktok  from '../imagenes/icotiktok.png';
+import whatsapp  from '../imagenes/icowhatsapp.png';
+
 
 const Footer = () => {
   const {theme,setTheme} = useGlobalStates()
@@ -7,11 +12,13 @@ const Footer = () => {
     <footer className={theme}>
        
         <p>Powered by</p>
-        <img src='../images/DH.png'alt='DH-logo' />
-        <img src='../../public/images/ico-facebook.png'alt='facebook' />
-        <img src='../../public/images/ico-instagram.png'alt='instagram' />
-        <img src='../../public/images/ico-tiktok.png' alt='tiktok' />
-        <img src='../../public/images/ico-whatsapp.png' alt='wsp' />
+        <img  style = {{width: 200, backgroundColor: 'white'}} src='../images/DH.png' alt='DH-logo' />
+        <div className='footer-img'>
+        <img className='icon'src = {icofacebook} alt='facebook' />
+        <img className='icon'src={icoinstagram }alt='instagram' />
+        <img className='icon'src={icotiktok}alt='tiktok' />
+        <img className='icon'src={whatsapp}alt='wsp' />
+        </div>
     </footer>
   )
 }
